@@ -15,7 +15,7 @@
  *  @version 1.0.0  2017-01-14  James Migdal  Initial writing and release
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
  
-public class HelloWorld {
+public class Hello {
   public static void main( String args[] ) {
     System.out.println( "Hello, world" );
   }
