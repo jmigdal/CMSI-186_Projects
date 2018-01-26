@@ -3,8 +3,8 @@
  *  Purpose       :  Provides a class with supporting methods for CountTheDays.java program
  *  Author        :  B.J. Johnson (prototype)
  *  Date          :  2017-01-02 (prototype)
- *  Author        :  <your name here>
- *  Date          :  <date of writing here>
+ *  Author        :  James Migdal
+ *  Date          :  2018-01-25
  *  Description   :  This file provides the supporting methods for the CountTheDays program which will
  *                   calculate the number of days between two dates.  It shows the use of modularization
  *                   when writing Java code, and how the Java compiler can "figure things out" on its
@@ -27,31 +27,21 @@
 public class CalendarStuff {
 
   /**
-   * A listing of the days of the week, assigning numbers; Note that the week arbitrarily starts on Sunday
-   */
-   private static final int SUNDAY    = 0;
-   private static final int MONDAY    = SUNDAY    + 1;
-   private static final int TUESDAY   = MONDAY    + 1;
-   private static final int WEDNESDAY = TUESDAY   + 1;
-   private static final int THURSDAY  = WEDNESDAY + 1;
-   private static final int FRIDAY    = THURSDAY  + 1;
-   private static final int SATURDAY  = FRIDAY    + 1;
-  // you can finish the rest on your own
-  
-  /**
    * A listing of the months of the year, assigning numbers; I suppose these could be ENUMs instead, but whatever
    */
    private static final int JANUARY    = 0;
    private static final int FEBRUARY   = JANUARY   + 1;
-  // you can finish these on your own, too
+   private static final int MARCH      = FEBRUARY  + 1;
+   private static final int APRIL      = MARCH     + 1;
+   private static final int MAY        = APRIL     + 1;
+   private static final int JUNE       = MAY       + 1;
+   private static final int JULY       = JUNE      + 1;
+   private static final int AUGUST     = JULY      + 1;
+   private static final int SEPTEMBER  = AUGUST    + 1;
+   private static final int OCTOBER    = SEPTEMBER + 1;
+   private static final int NOVEMBER   = OCTOBER   + 1;
+   private static final int DECEMBER   = NOVEMBER  + 1;
   
-  /**
-   * An array containing the number of days in each month
-   *  NOTE: this excludes leap years, so those will be handled as special cases
-   *  NOTE: this is optional, but suggested
-   */
-   private static int[]    days        = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
   /**
    * The constructor for the class
    */
@@ -61,20 +51,23 @@ public class CalendarStuff {
 
   /**
    * A method to determine if the year argument is a leap year or not<br />
-   *  Leap years are every four years, except for even-hundred years, except for every 400
+   *  Leap years are every four years, except for hundred years, except for every 400
    * @param    year  long containing four-digit year
    * @return         boolean which is true if the parameter is a leap year
    */
-   public static long isLeapYear( long year ) {
+   public static boolean isLeapYear( long year ) {
 	   if ( year % 4 == 0 ) {
-         if ( ( year % 200 == 0 ) == ( year % 400 == 0 ) ) {
-            return 1;
+         if ( year % 100 == 0 ) {
+            if ( year % 400 == 0 ) {
+               return true;
+            } else {
+               return false;
+            }
+         } else {
+            return true;
          }
       }
-      else {
-         return 0;
-      }
-      throw new IllegalArgumentException( "Illegal month value given to 'isLeapYear'." );
+      return false;
    }
 
   /**
@@ -86,19 +79,23 @@ public class CalendarStuff {
    *         be decremented to make the appropriate index value
    */
    public static long daysInMonth( long month, long year ) {
-      switch (Math.toIntExact(month)-1) {
-         case 0 : return 31;
-         case 1 : return 28 + isLeapYear( year );
-         case 2 : return 31;
-         case 3 : return 30;
-         case 4 : return 31;
-         case 5 : return 30;
-         case 6 : return 31;
-         case 7 : return 31;
-         case 8 : return 30;
-         case 9 : return 31;
-         case 10: return 30;
-         case 11: return 31;
+      long leap = 0;
+      if ( isLeapYear(year) ) {
+         leap = 1;                                             //1 if it was  leap year, 0 otherwise
+      }
+      switch ( Math.toIntExact(month)-1 ) {
+         case JANUARY  : return 31;
+         case FEBRUARY : return 28 + leap;
+         case MARCH    : return 31;
+         case APRIL    : return 30;
+         case MAY      : return 31;
+         case JUNE     : return 30;
+         case JULY     : return 31;
+         case AUGUST   : return 31;
+         case SEPTEMBER: return 30;
+         case OCTOBER  : return 31;
+         case NOVEMBER : return 30;
+         case DECEMBER : return 31;
          default: throw new IllegalArgumentException( "Illegal month value given to 'daysInMonth()'." );
       }
    }
@@ -117,7 +114,7 @@ public class CalendarStuff {
       if ( month1 == month2 && year1 == year2 && day1 == day2 ) {
          return true;
       } else {
-         throw new IllegalArgumentException( "Illegal month value given to 'dateEquals()'." );
+         return false;
       }
    }
 
@@ -132,16 +129,24 @@ public class CalendarStuff {
    * @return          int    -1/0/+1 if first date is less than/equal to/greater than second
    */
    public static int compareDate( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-      if ( year1 > year2 ) {
+      if ( year1 == year2 ) {
+         if ( month1 == month2 ) {
+            if ( day1 == day2 ) {
+               return 0;
+            } else if ( day1 > day2 ) {
+               return 1;
+            } else {               
+               return -1;
+            }
+         } else if ( month1 > month2 ) {
+            return 1;
+         } else {
+            return -1;
+         }
+      } else if ( year1 > year2 ) {
          return 1;
-      } else if ( month1 > month2 ) {
-         return 1;
-      } else if ( day1 > day2 ) {
-         return 1;
-      } else if ( day1 < day2 ) {
-         return -1;
       } else {
-         return 0;
+         return -1;
       }
    }
 
@@ -161,10 +166,8 @@ public class CalendarStuff {
                return true;
             }
          }
-      } else {
-         return false;
       }
-      throw new IllegalArgumentException( "Illegal month value given to 'isValidDate()'." );
+      return false;
    }
 
   /**
@@ -174,30 +177,19 @@ public class CalendarStuff {
    */
    public static String toMonthString( long month ) {
       switch(Math.toIntExact(month - 1)) {
-         case 0 : return "January";
-         case 1 : return "February";
-         case 2 : return "March";
-         case 3 : return "April";
-         case 4 : return "May";
-         case 5 : return "June";
-         case 6 : return "July";
-         case 7 : return "August";
-         case 8 : return "September";
-         case 9 : return "October";
-         case 10: return "November";
-         case 11: return "December";
+         case JANUARY  : return "January";
+         case FEBRUARY : return "February";
+         case MARCH    : return "March";
+         case APRIL    : return "April";
+         case MAY      : return "May";
+         case JUNE     : return "June";
+         case JULY     : return "July";
+         case AUGUST   : return "August";
+         case SEPTEMBER: return "September";
+         case OCTOBER  : return "October";
+         case NOVEMBER : return "November";
+         case DECEMBER : return "December";
          default: throw new IllegalArgumentException( "Illegal month value given to 'toMonthString()'." );
-      }
-   }
-
-  /**
-   * A method to return a string version of the day of the week name
-   * @param    day int    containing day number, starting with "1" for "Sunday"
-   * @return       String containing the string value of the day (no spaces)
-   */
-   public static String toDayOfWeekString( int day ) {
-      switch( day - 1 ) {
-         default       : throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
       }
    }
 
