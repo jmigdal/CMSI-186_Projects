@@ -194,6 +194,17 @@ public class CalendarStuff {
    }
 
   /**
+   * A method to return a string version of the day of the week name
+   * @param    day int    containing day number, starting with "1" for "Sunday"
+   * @return       String containing the string value of the day (no spaces)
+   */
+   public static String toDayOfWeekString( int day ) {
+      switch( day - 1 ) {
+         default       : throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
+      }
+   }
+   
+  /**
    * A method to return a count of the total number of days between two valid dates
    * @param    month1 long   containing month number, starting with "1" for "January"
    * @param    day1   long   containing day number
