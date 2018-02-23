@@ -8,7 +8,7 @@
  *
  *  Notes         :  The user must choose at least one die and the dice must be at least 4 sided.
  *  Warnings      :  None
- *  Exceptions    :  None
+ *  Exceptions    :  IllegalArgumentException when the number of sides or pips is out of range
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  Revision Histor
  *  ---------------
