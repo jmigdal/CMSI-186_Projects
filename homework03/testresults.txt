@@ -1,0 +1,607 @@
+Hello world from the Die class...
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+TESTING THE DIE CLASS: TESTS ON 4-SIDED DIE:
+   roll() test for 4 sided die: 
+   You rolled a 1
+   You rolled a 3
+   You rolled a 1
+   You rolled a 4
+   You rolled a 1
+   Current value is: 1
+TESTING THE DIE CLASS: TESTS ON 5-SIDED DIE:
+   roll() test for 5 sided die: 
+   You rolled a 4
+   You rolled a 3
+   You rolled a 3
+   You rolled a 1
+   You rolled a 5
+   Current value is: 5
+TESTING THE DIE CLASS: TESTS ON 6-SIDED DIE:
+   roll() test for 6 sided die: 
+   You rolled a 6
+   You rolled a 4
+   You rolled a 5
+   You rolled a 3
+   You rolled a 4
+   Current value is: 4
+TESTING THE DIE CLASS: TESTS ON 7-SIDED DIE:
+   roll() test for 7 sided die: 
+   You rolled a 4
+   You rolled a 2
+   You rolled a 5
+   You rolled a 3
+   You rolled a 3
+   Current value is: 3
+TESTING THE DIE CLASS: TESTS ON 8-SIDED DIE:
+   roll() test for 8 sided die: 
+   You rolled a 5
+   You rolled a 2
+   You rolled a 4
+   You rolled a 5
+   You rolled a 5
+   Current value is: 5
+TESTING THE DIE CLASS: TESTS ON 11-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 2
+      You rolled a 7
+      You rolled a 5
+      You rolled a 4
+      You rolled a 6
+TESTING THE DIE CLASS: TESTS ON 17-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 1
+      current value is: 1
+TESTING THE DIE CLASS: TESTS ON 111-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 28
+      current value is: 28
+......End of Die Class Testing.....
+
+
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 3 SIX-SIDED DICE:
+  DiceSet: 3 dice, six sided - ds36:
+      initialized ds36 contents             : [1][1][1]
+      after collective roll ds36 contents   : [2][5][4]
+      after individual roll(2) ds36 contents: [2][5][1]
+      sum of dice values is: 8
+   Re-rolling all dice
+      after collective roll ds36 contents   : [5][4][3]
+      after individual roll(2) ds36 contents: [5][4][6]
+      sum of dice values is                 : 15
+   Test of getIndividual(): 
+      value of die at index 0: 5
+      value of die at index 1: 4
+      value of die at index 2: 6
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 6 NINE-SIDED DICE:
+   DiceSet: 6 dice, nine sided - ds69:
+      initialized ds36 contents             : [1][1][1][1][1][1]
+      after collective roll ds69 contents   : [1][8][4][5][7][1]
+      after individual roll(2) ds69 contents: [1][8][3][5][7][1]
+      sum of dice values is                 : 25
+   Re-rolling all dice
+      after collective roll ds69 contents   : [7][5][2][6][8][8]
+      after individual roll(3) ds69 contents: [7][5][2][4][8][8]
+      sum of dice values is                 : 34
+   Test of getIndividual(): 
+      value of die at index 0: 7
+      value of die at index 1: 5
+      value of die at index 2: 2
+      value of die at index 3: 4
+      value of die at index 4: 8
+      value of die at index 5: 8
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 9 SEVENTEEN-SIDED DICE:
+   DiceSet: 9 dice, 17 sided - ds917:
+      initialized ds36 contents              : [1][1][1][1][1][1][1][1][1]
+      after collective roll ds917 contents   : [1][11][15][14][10][3][2][16][2]
+      after individual roll(6) ds917 contents: [1][11][15][14][10][3][7][16][2]
+      sum of dice values is                  : 79
+   Re-rolling all dice
+      after collective roll ds917 contents   : [2][2][16][17][3][3][6][1][16]
+      after individual roll(8) ds69 contents : [2][2][16][17][3][3][6][1][5]
+      sum of dice values is                  : 55
+   Test of getIndividual(): 
+      value of die at index 0: 2
+      value of die at index 1: 2
+      value of die at index 2: 16
+      value of die at index 3: 17
+      value of die at index 4: 3
+      value of die at index 5: 3
+      value of die at index 6: 6
+      value of die at index 7: 1
+      value of die at index 8: 5
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR 9 SEVENTEEN-SIDED DICE:
+   Test of isIndentical(): 
+      Test of ds917 against ds69   : false
+      Test of ds917 against itself : true
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR NEW SET OF 9 SEVENTEEN-SIDED DICE:
+   DiceSet ds917 contents       : [8][8][15][5][13][15][1][6][4]
+      New DiceSet ds2_917 contents : [14][8][10][10][15][6][4][2][4]
+      Test of ds917 against ds2_917: false
+......End of DiceSet Class Testing.....
+
+
+Enter the number of dice you would like to use.
+>>Enter the number of sides per dice
+>>-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>13
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>13
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>19
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>19
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Enter the number of dice you would like to use.
+>>Enter the number of sides per dice
+>>-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>114
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>114
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>107
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>107
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Enter the number of dice you would like to use.
+>>Enter the number of sides per dice
+>>-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>77
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>77
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>Which die would you like to roll?
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>66
+
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>66
+
+-=Enter one of the following numbers to do its action=-
+1: Roll all the dice
+2: Roll a single die
+3: Calculate the score for this set
+4: Save this score as high score
+5: Display the high score
+OR enter 'q' to quit
+>>
