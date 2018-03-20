@@ -25,6 +25,9 @@ public class ClockSolver {
    private final double MAX_TIME_SLICE_IN_SECONDS  = 1800.00;
    private final double DEFAULT_TIME_SLICE_SECONDS = 60.0;
    private final double EPSILON_VALUE              = 0.1;      // small value for double-precision comparisons
+   
+   private double timeslice;
+   private double angle;
 
   /**
    *  Constructor
@@ -51,7 +54,22 @@ public class ClockSolver {
                              "   Please try again..........." );
          System.exit( 1 );
       }
-      Clock clock = new Clock();
+      
+      if ( 2 <= args.length ) {
+         timeslice = Double.parseDouble( args[1] );
+      } else {
+         timeslice = DEFAULT_TIME_SLICE_SECONDS;
+      } 
+      
+      if ( Double.parseDouble( args[0] ) < 0 || Double.parseDouble( args[0] ) > 360 ) {
+         System.out.println( "Angle is out of range" );
+         System.exit( 1 );
+      } else {
+         angle = Double.parseDouble( args[0] ); 
+      }
+      
+      System.out.println("\tYour simulation is running, \n\t looking for angles of " + args[0] + " degrees\n\t with a time slice of " + timeslice + " seconds and\n\t with an EPSILON_VALUE " + EPSILON_VALUE + "\n\n");
+      
    }
 
   /**
@@ -64,16 +82,21 @@ public class ClockSolver {
    */
    public static void main( String args[] ) {
       ClockSolver cse = new ClockSolver();
-      //Clock clock    = new Clock();
+      Clock clock    = new Clock();
       double[] timeValues = new double[3];
       cse.handleInitialArguments( args );
       
-      System.out.println("\tYour simulation is running, \n\tlooking for angles of " 
+      
       
       while( true ) {
-         if ( clock.getHandAngle() >= args[0] - EPSILON_VALUE || clock.getHandAngle() <= args[0] + EPSILON_VALUE ) {
-            System.out.println("
-         break;
+         //System.out.println(clock.getHandAngle());
+         if ( clock.getHandAngle() >= (cse.angle - cse.EPSILON_VALUE) && clock.getHandAngle() <= (cse.angle + cse.EPSILON_VALUE) ) {
+            System.out.println("Found target angle of " + cse.angle + " at time:\t" + clock.toString() );           
+         }
+         if ( clock.getTotalSeconds() >= 43200 ) {
+            break;
+         }
+         clock.tick(cse.timeslice);
       }
       System.exit( 0 );
    }
