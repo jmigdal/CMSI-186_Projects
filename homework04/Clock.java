@@ -30,19 +30,13 @@ public class Clock {
    
    private static double elapstime = 0.0;
    private static double timeslice = 0.0;
-   private static double compangle = 0.0;
+   private static double angle = 0.0;
 
   /**
    *  Constructor goes here
    */
    public Clock() {
-      compangle = validateAngleArg( args[0] );
-      if ( args.length >= 2 ) {
-         timeslice = validateTimeSliceArg( args[1] );
-      } else {
-         timeslice = DEFAULT_TIME_SLICE_IN_SECONDS;
-      }
-      
+      super();
    }
 
   /**
@@ -51,7 +45,7 @@ public class Clock {
    *  Method to calculate the next tick from the time increment
    *  @return double-precision value of the current clock tick
    */
-   public double tick() {
+   public double tick( double timeslice) {
       elapstime += timeslice;
       return elapstime;
    }
@@ -86,7 +80,7 @@ public class Clock {
    *  @return double-precision value of the hour hand location
    */
    public double getHourHandAngle() {
-      return elapstime*HOUR_HAND_DEGREES_PER_SECOND;
+      return elapstime*HOUR_HAND_DEGREES_PER_SECOND%360;
    }
 
   /**
@@ -94,7 +88,7 @@ public class Clock {
    *  @return double-precision value of the minute hand location
    */
    public double getMinuteHandAngle() {
-      return elapstime*MINUTE_HAND_DEGREES_PER_SECOND;
+      return elapstime*MINUTE_HAND_DEGREES_PER_SECOND%360;
    }
 
   /**
@@ -103,10 +97,14 @@ public class Clock {
    */
    public double getHandAngle() {
       if ( getMinuteHandAngle() - getHourHandAngle() < 0 ) {
-         return getMinuteHandAngle() - getHourHandAngle() + 360;
+         angle = getMinuteHandAngle() - getHourHandAngle() + 360;
       } else {
-         return getMinuteHandAngle() - getHourHandAngle();
+         angle = getMinuteHandAngle() - getHourHandAngle();
       }
+      if ( angle > 180 ) {
+         angle = 360 - angle;
+      }
+      return angle;
    }
 
   /**
@@ -123,7 +121,7 @@ public class Clock {
    *  @return String value of the current clock
    */
    public String toString() {
-      String clockdescrip = "\t looking for angles of " + compangle + " degrees \n\t with a time slice of " + timeslice + " seconds.";
+      String clockdescrip = (int)(elapstime/3600)%12 + " : " + (int)(elapstime/60)%60 + " : " + (elapstime % 60);
       return clockdescrip;
    }
 
