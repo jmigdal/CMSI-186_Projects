@@ -1,10 +1,14 @@
 public class SoccerSim {
    
    private static final double DEFAULT_TIMESLICE_SECONDS = 1.0;
-   private final double MAXIMUM_X_VALUE = 1000.0;
-   private final double MINIMUM_X_VALUE = -1000.0;
-   private final double MAXIMUM_Y_VALUE = 1000.0;
-   private final double MINIMUM_Y_VALUE = -1000.0;
+   private static final double MAXIMUM_X_VALUE = 10000.0;
+   private static final double MINIMUM_X_VALUE = -10000.0;
+   private static final double MAXIMUM_Y_VALUE = 10000.0;
+   private static final double MINIMUM_Y_VALUE = -10000.0;
+   private static final double POLE_X = 250.0;
+   private static final double POLE_Y = 250.0;
+   private static final double POLE_RADIUS = 5;
+   
    
    private static double timeslice;
    private static int numOfBalls;
@@ -39,20 +43,25 @@ public class SoccerSim {
    }
    
    public static boolean checkCollision() {
-      double[] firstPos;
+      double[] firstPos = {0,0};
       double[] secondPos;
       double distance;
       for ( int i = 0; i < numOfBalls; i++ ) {
          for ( int j = 1; j < numOfBalls; j++ ) {
             firstPos = bs[i].getPosition();
             secondPos = bs[j].getPosition();
-            distance = Math.sqrt( Math.pow( firstPos[0] - secondPos[0], 2 ) + Math.pow( firstPos[1] - secondPos[1], 2 ) );
+            distance = Math.sqrt( Math.pow( firstPos[0] - secondPos[0],2 ) + Math.pow( firstPos[1] - secondPos[1],2 ) );
             if ( j <= i ) {
                break;
-            } else if ( distance <= 8.9 ) {
+            } else if ( distance <= bs[i].getRadius() + bs[j].getRadius() ) {
                System.out.println("\nCONTACT ball " + i + " & " + j + ";");
                return true;
             }
+         }
+         
+         if ( Math.sqrt( Math.pow( firstPos[0] - POLE_X,2 ) + Math.pow( firstPos[1] - POLE_Y,2 ) ) <= bs[i].getRadius() + POLE_RADIUS ) {
+            System.out.println("\nCONTACT ball " + i + " & pole;");
+            return true;
          }
       }
       return false;
@@ -68,6 +77,13 @@ public class SoccerSim {
       return true;
    }
    
+   public static boolean checkInbounds( int ball ) {
+      double[] pos = bs[ball].getPosition();
+      if ( pos[0] > MAXIMUM_X_VALUE || pos[0] < MINIMUM_X_VALUE || pos[1] > MAXIMUM_Y_VALUE || pos[1] < MINIMUM_Y_VALUE ) {
+         return false;
+      }
+      return true;
+   }
    
    public static void main (String[]args) {
       
@@ -88,7 +104,11 @@ public class SoccerSim {
          for ( int i = 0; i < numOfBalls; i++ ) {
             bs[i].move();
             bs[i].friction( timeslice );
-            System.out.println( i + ":\t" + bs[i].toString() );
+            if ( checkInbounds(i) ) {
+               System.out.println( i + ":\t" + bs[i].toString() );
+            } else {
+               System.out.println( i + ":\tout of bounds" );
+            }
          }
          
          if ( checkAllStopped() ) {
