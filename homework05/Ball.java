@@ -4,13 +4,15 @@ public class Ball {
    private double y;
    private double velx;
    private double vely;
+   private double radius;
    private double[] position = new double[2];
    
    public Ball( double x, double y, double velx, double vely) {
       this.x = x;
       this.y = y;
       this.velx = velx;
-      this.vely = vely;
+      this.vely = vely; 
+      this.radius = 0.37;
    }
    
    public void move() {
@@ -31,6 +33,10 @@ public class Ball {
    
    public double getSpeed() {
       return Math.sqrt( this.velx*this.velx + this.vely*this.vely );
+   }
+   
+   public double getRadius() {
+      return this.radius;
    }
    
    public String toString() {
